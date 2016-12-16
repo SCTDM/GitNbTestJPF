@@ -20,7 +20,6 @@ public class Datum implements IDatum, Comparable, Serializable {
         this.dag = dag;
         this.maand = maand;
         this.jaar = jaar;
-
     }
 
     private void datumNotOutOfBounds(int dag, int maand, int jaar) throws DatumOutOfBoundsException
