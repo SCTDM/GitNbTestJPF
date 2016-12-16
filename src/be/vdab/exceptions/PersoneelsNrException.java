@@ -5,8 +5,9 @@ package be.vdab.exceptions;
  * @author simon.chaffart
  */
 public class PersoneelsNrException extends Exception {
-    public PersoneelsNrException()
+   
+    public PersoneelsNrException(String message)
     {
-        super("PersoneelsNr is kleiner dan 1");
+        super(message);
     }
 }

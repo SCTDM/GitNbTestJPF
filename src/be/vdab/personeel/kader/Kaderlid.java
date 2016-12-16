@@ -1,6 +1,5 @@
 package be.vdab.personeel.kader;
 
-import be.vdab.exceptions.DatumIndiensttredingException;
 import be.vdab.exceptions.DatumOutOfBoundsException;
 import be.vdab.exceptions.NaamException;
 import be.vdab.exceptions.PersoneelsNrException;
@@ -25,7 +24,7 @@ public class Kaderlid extends Bediende {
      * @param maandwedde kan niet lager zijn dan 1129.47
      * @param functietitel kan geset worden als "DIRECTEUR", "CEO", "MANAGER" (wordt geset op "MANAGER" als null wordt opgegeven als parameter )
      */
-    public Kaderlid(int personeelsnr, int dag, int maand, int jaar, String naam, double maandwedde, Functietitel functietitel) throws NaamException, PersoneelsNrException, DatumOutOfBoundsException, DatumIndiensttredingException
+    public Kaderlid(int personeelsnr, int dag, int maand, int jaar, String naam, double maandwedde, Functietitel functietitel) throws NaamException, PersoneelsNrException, DatumOutOfBoundsException
     {
         super(personeelsnr, dag, maand, jaar, naam, maandwedde);
         setFunctietitel(functietitel);
@@ -40,7 +39,7 @@ public class Kaderlid extends Bediende {
      * @param functietitel kan geset worden als "DIRECTEUR", "CEO", "MANAGER" (wordt geset op "MANAGER" als null als parameter wordt meegegeven)
      * @param geslacht kan geset worden als "M" (voor een man) of "V" (voor een vrouw)
      */
-    public Kaderlid(int personeelsnr, int dag, int maand, int jaar, String naam, double maandwedde, Functietitel functietitel, Geslacht geslacht) throws NaamException, PersoneelsNrException, DatumOutOfBoundsException, DatumIndiensttredingException
+    public Kaderlid(int personeelsnr, int dag, int maand, int jaar, String naam, double maandwedde, Functietitel functietitel, Geslacht geslacht) throws NaamException, PersoneelsNrException, DatumOutOfBoundsException
     {
         super(personeelsnr, dag, maand, jaar, naam, maandwedde, geslacht);
         setFunctietitel(functietitel);

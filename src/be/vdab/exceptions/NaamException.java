@@ -5,8 +5,9 @@ package be.vdab.exceptions;
  * @author simon.chaffart
  */
 public class NaamException extends Exception {
-    public NaamException()
+   
+    public NaamException(String message)
     {
-        super("De naam is niet ingevuld");
+        super(message);
     }
 }

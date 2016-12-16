@@ -22,7 +22,7 @@ public class Datum implements IDatum, Comparable, Serializable {
         this.jaar = jaar;
     }
 
-    private void datumNotOutOfBounds(int dag, int maand, int jaar) throws DatumOutOfBoundsException
+    protected void datumNotOutOfBounds(int dag, int maand, int jaar) throws DatumOutOfBoundsException
     {
         if (jaar > 4099 || jaar < 1584) {
             throw new DatumOutOfBoundsException("Jaartal valt buiten de toegelaten waarden: 1584 - 4099");

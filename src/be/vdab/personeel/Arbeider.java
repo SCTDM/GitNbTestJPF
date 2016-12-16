@@ -4,7 +4,6 @@ import be.vdab.exceptions.DatumOutOfBoundsException;
 import be.vdab.exceptions.NaamException;
 import be.vdab.exceptions.PersoneelsNrException;
 import be.vdab.util.Geslacht;
-import be.vdab.exceptions.DatumIndiensttredingException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
@@ -24,7 +23,7 @@ public class Arbeider extends Werknemer {
      * @param naam mag niet leeg zijn
      * @param uurloon kan niet lager zijn dan 9.76
      */
-    public Arbeider(int personeelsnr, int dag, int maand, int jaar, String naam, double uurloon) throws NaamException, PersoneelsNrException, DatumOutOfBoundsException, DatumIndiensttredingException
+    public Arbeider(int personeelsnr, int dag, int maand, int jaar, String naam, double uurloon) throws NaamException, PersoneelsNrException, DatumOutOfBoundsException
     {
         super(personeelsnr, dag, maand, jaar, naam);
         setUurloon(uurloon);
@@ -38,7 +37,7 @@ public class Arbeider extends Werknemer {
      * @param uurloon kan niet lager zijn dan 9.76
      * @param geslacht kan geset worden als "M" (voor een man) of "V" (voor een vrouw)
      */
-    public Arbeider(int personeelsnr, int dag, int maand, int jaar, String naam, double uurloon, Geslacht geslacht) throws NaamException, PersoneelsNrException, DatumOutOfBoundsException, DatumIndiensttredingException
+    public Arbeider(int personeelsnr, int dag, int maand, int jaar, String naam, double uurloon, Geslacht geslacht) throws NaamException, PersoneelsNrException, DatumOutOfBoundsException
     {
         super(personeelsnr, dag, maand, jaar, naam, geslacht);
         setUurloon(uurloon);

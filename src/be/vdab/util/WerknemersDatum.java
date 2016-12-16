@@ -28,8 +28,18 @@ public class WerknemersDatum extends Datum {
     public WerknemersDatum(int dag, int maand, int jaar) throws DatumOutOfBoundsException
     {
         super(dag, maand, jaar);
-    }
+    }   
 
+    @Override
+    protected void datumNotOutOfBounds(int dag, int maand, int jaar) throws DatumOutOfBoundsException
+    {
+        super.datumNotOutOfBounds(dag, maand, jaar);
+        Datum tmp = new Datum(dag, maand, jaar);
+        if (tmp.compareTo(OPRICHTINGSDATUM) <= 0) {
+            throw new DatumOutOfBoundsException("Indiensttredingsdatum is niet geldig (kan niet voor 12/02/1977 zijn)");
+        }
+    }   
+    
     @Override
     public String toString()
     {
