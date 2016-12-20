@@ -21,9 +21,9 @@ public class WerknemersDatum extends Datum {
      OPRICHTINGSDATUM = tmp;
     }
     
-    /**
+    /** Er kan geen datum ingegeven worden vóór 12/2/1977
      *
-     * @throws DatumOutOfBoundsException  
+     * @throws DatumOutOfBoundsException Thrown if attempting to initialize a WerknemersDatum with a date earlier than 12/2/1977 
      */
     public WerknemersDatum(int dag, int maand, int jaar) throws DatumOutOfBoundsException
     {
@@ -36,13 +36,7 @@ public class WerknemersDatum extends Datum {
         super.datumNotOutOfBounds(dag, maand, jaar);
         Datum tmp = new Datum(dag, maand, jaar);
         if (tmp.compareTo(OPRICHTINGSDATUM) <= 0) {
-            throw new DatumOutOfBoundsException("Indiensttredingsdatum is niet geldig (kan niet voor 12/02/1977 zijn)");
+            throw new DatumOutOfBoundsException("Indiensttredingsdatum " + tmp + " is niet geldig (kan niet voor 12/02/1977 zijn)");
         }
-    }   
-    
-    @Override
-    public String toString()
-    {
-        return "[" + getDag() + "/" + getMaand() + "/" + getJaar() + "]";
     }
 }

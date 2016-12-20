@@ -6,14 +6,12 @@ import be.vdab.personeel.Werknemer;
 import be.vdab.personeel.kader.Kaderlid;
 import be.vdab.util.Functietitel;
 import be.vdab.util.Geslacht;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.util.Set;
+import java.math.BigDecimal;
+import java.util.SortedSet;
 import java.util.TreeSet;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -22,11 +20,11 @@ import java.util.logging.Logger;
 public class Bedrijf {
     public static void main(String[] args)
     {
-        Set<Werknemer> werknemers = new TreeSet<>();
+        SortedSet<Werknemer> werknemers = new TreeSet<>();
 
         // Arbeider zonder geslacht
         try {
-            werknemers.add(new Arbeider(5, 1, 12, 1980, "Jef Peeters", 10));
+            werknemers.add(new Arbeider(5, 1, 12, 1980, "Jef Peeters", BigDecimal.valueOf(10)));
         }
         catch ( Exception ex ) {
             System.out.println(ex.toString());
@@ -34,7 +32,7 @@ public class Bedrijf {
 
         // Arbeider met geslacht
         try {
-            werknemers.add(new Arbeider(1, 1, 8, 1990, "Bart Vercauteren", 10.5, Geslacht.M));
+            werknemers.add(new Arbeider(1, 1, 8, 1990, "Bart Vercauteren", BigDecimal.valueOf(10.5), Geslacht.M));
         }
         catch ( Exception ex ) {
             System.out.println(ex.toString());
@@ -67,7 +65,7 @@ public class Bedrijf {
 
         // Kaderlid met geslacht
         try {
-            werknemers.add(new Kaderlid(6, 1, 3, 2005, "Stijn Peeters", 2303.20, Functietitel.CEO , Geslacht.M));
+            werknemers.add(new Kaderlid(6, 1, 3, 2005, "Stijn Peeters", 2303.20, Functietitel.CEO , Geslacht.valueOf("M")));
         }
         catch ( Exception ex ) {
             System.out.println(ex.toString());
@@ -76,14 +74,14 @@ public class Bedrijf {
         // Arbeider met slechte indienstredingsdatum
         
         try {
-            werknemers.add(new Arbeider(7, 11, 2, 1977, "Bart Vercauteren", 10.5, Geslacht.M));
+            werknemers.add(new Arbeider(7, 11, 2, 1977, "Bart Vercauteren", BigDecimal.valueOf(10.5), Geslacht.M));
         }
         catch ( Exception ex ) {
             System.out.println(ex.toString());
         }
         
-        ///////////////// Print out van set ///////////////////
-        werknemers.stream().forEach(System.out::println);
+        ///////////////// Print out van SortedSet ///////////////////
+        werknemers.forEach(System.out::println);
 
         //////////////// Serialisatie van Set /////////////////
 //        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("personeel.dat"));) {

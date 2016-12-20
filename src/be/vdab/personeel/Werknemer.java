@@ -108,18 +108,8 @@ public abstract class Werknemer implements Comparable<Werknemer>, Serializable {
     {
         StringBuilder sb = new StringBuilder();
         sb.append(personeelsnr).append("\t").append(datumInDienst).append("\t").append(naam);
-        if (getClass() == Kaderlid.class) {
-            Kaderlid kaderlid = (Kaderlid) this;
-            sb.append("\t").append(kaderlid.getFunctietitel());
-        }
-        if (getClass() == Arbeider.class) {
-            sb.append("\t").append("ARBEIDER");
-        }
-        if (getClass() == Bediende.class) {
-            sb.append("\t").append("BEDIENDE");
-        }
         if (geslacht != null) {
-            sb.append("\t").append(geslacht);
+            sb.append("\t").append(getGeslacht());
         }
         sb.append("\t").append(getVerloning());
         return sb.toString();

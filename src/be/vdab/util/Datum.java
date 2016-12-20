@@ -7,7 +7,7 @@ import java.io.Serializable;
  *
  * @author simon.chaffart
  */
-public class Datum implements IDatum, Comparable, Serializable {
+public class Datum implements IDatum, Comparable<Datum>, Serializable {
     private static final long serialVersionUID = 1L;
 
     private final int dag;
@@ -143,28 +143,21 @@ public class Datum implements IDatum, Comparable, Serializable {
     @Override
     public String toString()
     {
-        return "Datum: " + dag + "/" + maand + "/" + jaar;
+        return "[" + dag + "/" + maand + "/" + jaar + "]";
     }
 
     @Override
-    public int compareTo(Object o)
-    {
-//        try {
-        Datum other = (Datum) o;
-        if (this.getJaar() == other.getJaar()) {
-            if (this.getMaand() == other.getMaand()) {
-                return this.getDag() - other.getDag();
+    public int compareTo(Datum other) {
+        if (jaar == other.jaar) {
+            if (maand == other.maand) {
+                return dag - other.dag;
             }
             else {
-                return this.getMaand() - other.getMaand();
+                return maand - other.maand;
             }
         }
         else {
-            return this.getJaar() - other.getJaar();
+            return jaar - other.jaar;
         }
-//        }
-//        catch ( ClassCastException e ) {
-//            System.out.println("Gefaald om naar Datum te casten");
-//        }
     }
 }
