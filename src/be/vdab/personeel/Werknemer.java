@@ -27,7 +27,7 @@ public abstract class Werknemer implements Comparable<Werknemer>, Serializable {
      * @param personeelsnr moet groter zijn dan 0
      * @param naam mag niet leeg zijn
      */
-    public Werknemer(int personeelsnr, int dag, int maand, int jaar, String naam) throws NaamException, PersoneelsNrException, DatumOutOfBoundsException
+    public Werknemer(int personeelsnr, WerknemersDatum datumInDienst, String naam) throws NaamException, PersoneelsNrException, DatumOutOfBoundsException
     {
         if (personeelsnr > 0) {
             this.personeelsnr = personeelsnr;
@@ -35,7 +35,7 @@ public abstract class Werknemer implements Comparable<Werknemer>, Serializable {
         else {
             throw new PersoneelsNrException("Personeelsnummer is kleiner dan de kleinst toegelaten waarde: 1");
         }
-        setDatumInDienst(dag, maand, jaar);
+        this.datumInDienst = datumInDienst;
         setNaam(naam);
     }
 
@@ -46,9 +46,9 @@ public abstract class Werknemer implements Comparable<Werknemer>, Serializable {
      * @param naam mag niet leeg zijn
      * @param geslacht kan geset worden als "M" (voor een man) of "V" (voor een vrouw)
      */
-    public Werknemer(int personeelsnr, int dag, int maand, int jaar, String naam, Geslacht geslacht) throws NaamException, PersoneelsNrException, DatumOutOfBoundsException
+    public Werknemer(int personeelsnr, WerknemersDatum datumInDienst, String naam, Geslacht geslacht) throws NaamException, PersoneelsNrException, DatumOutOfBoundsException
     {
-        this(personeelsnr, dag, maand, jaar, naam);
+        this(personeelsnr, datumInDienst, naam);
         setGeslacht(geslacht);
     }
 

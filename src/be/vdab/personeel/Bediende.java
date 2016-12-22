@@ -4,6 +4,7 @@ import be.vdab.exceptions.DatumOutOfBoundsException;
 import be.vdab.exceptions.NaamException;
 import be.vdab.exceptions.PersoneelsNrException;
 import be.vdab.util.Geslacht;
+import be.vdab.util.WerknemersDatum;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
@@ -23,9 +24,9 @@ public class Bediende extends Werknemer {
      * @param naam mag niet leeg zijn
      * @param maandwedde kan niet lager zijn dan 1129.47
      */
-    public Bediende(int personeelsnr, int dag, int maand, int jaar, String naam, double maandwedde) throws NaamException, PersoneelsNrException, DatumOutOfBoundsException
+    public Bediende(int personeelsnr, WerknemersDatum datumInDienst, String naam, double maandwedde) throws NaamException, PersoneelsNrException, DatumOutOfBoundsException
     {
-        super(personeelsnr, dag, maand, jaar, naam);
+        super(personeelsnr, datumInDienst, naam);
         setMaandwedde(maandwedde);
     }
 
@@ -37,9 +38,9 @@ public class Bediende extends Werknemer {
      * @param maandwedde kan niet lager zijn dan 1129.47
      * @param geslacht kan geset worden als "M" (voor een man) of "V" (voor een vrouw)
      */
-    public Bediende(int personeelsnr, int dag, int maand, int jaar, String naam, double maandwedde, Geslacht geslacht) throws NaamException, PersoneelsNrException, DatumOutOfBoundsException
+    public Bediende(int personeelsnr, WerknemersDatum datumInDienst, String naam, double maandwedde, Geslacht geslacht) throws NaamException, PersoneelsNrException, DatumOutOfBoundsException
     {
-        super(personeelsnr, dag, maand, jaar, naam, geslacht);
+        super(personeelsnr, datumInDienst, naam, geslacht);
         setMaandwedde(maandwedde);
     }
 

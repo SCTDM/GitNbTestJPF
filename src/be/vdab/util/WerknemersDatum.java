@@ -36,7 +36,7 @@ public class WerknemersDatum extends Datum {
         super.datumNotOutOfBounds(dag, maand, jaar);
         Datum tmp = new Datum(dag, maand, jaar);
         if (tmp.compareTo(OPRICHTINGSDATUM) <= 0) {
-            throw new DatumOutOfBoundsException("Indiensttredingsdatum " + tmp + " is niet geldig (kan niet voor 12/02/1977 zijn)");
+            throw new DatumOutOfBoundsException("Indiensttredingsdatum " + tmp + " is niet geldig, kan niet voor 12/02/1977 zijn");
         }
     }
 }

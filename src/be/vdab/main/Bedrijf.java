@@ -6,6 +6,7 @@ import be.vdab.personeel.Werknemer;
 import be.vdab.personeel.kader.Kaderlid;
 import be.vdab.util.Functietitel;
 import be.vdab.util.Geslacht;
+import be.vdab.util.WerknemersDatum;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -24,7 +25,7 @@ public class Bedrijf {
 
         // Arbeider zonder geslacht
         try {
-            werknemers.add(new Arbeider(5, 1, 12, 1980, "Jef Peeters", BigDecimal.valueOf(10)));
+            werknemers.add(new Arbeider(5, new WerknemersDatum(1, 12, 1980), "Jef Peeters", BigDecimal.valueOf(10)));
         }
         catch ( Exception ex ) {
             System.out.println(ex.toString());
@@ -32,7 +33,7 @@ public class Bedrijf {
 
         // Arbeider met geslacht
         try {
-            werknemers.add(new Arbeider(1, 1, 8, 1990, "Bart Vercauteren", BigDecimal.valueOf(10.5), Geslacht.M));
+            werknemers.add(new Arbeider(1, new WerknemersDatum(1, 8, 1990), "Bart Vercauteren", BigDecimal.valueOf(10.5), Geslacht.M));
         }
         catch ( Exception ex ) {
             System.out.println(ex.toString());
@@ -40,7 +41,7 @@ public class Bedrijf {
 
         // Bediende zonder geslacht
         try {
-            werknemers.add(new Bediende(4, 1, 4, 1990, "Marie Christine", 1503.40));
+            werknemers.add(new Bediende(4, new WerknemersDatum(1, 4, 1990), "Marie Christine", 1503.40));
         }
         catch ( Exception ex ) {
             System.out.println(ex.toString());
@@ -48,7 +49,7 @@ public class Bedrijf {
 
         // Bediende met geslacht
         try {
-            werknemers.add(new Bediende(2, 1, 6, 1995, "Joële Marie",
+            werknemers.add(new Bediende(2, new WerknemersDatum(1, 6, 1995), "Joële Marie",
                     1550.23, Geslacht.V));
         }
         catch ( Exception ex ) {
@@ -57,7 +58,7 @@ public class Bedrijf {
 
         // Kaderlid zonder geslacht
         try {
-            werknemers.add(new Kaderlid(3, 1, 2, 2000, "Erik Goossens", 2102.30, null));
+            werknemers.add(new Kaderlid(3, new WerknemersDatum(1, 2, 2000), "Erik Goossens", 2102.30, null));
         }
         catch ( Exception ex ) {
             System.out.println(ex.toString());
@@ -65,7 +66,7 @@ public class Bedrijf {
 
         // Kaderlid met geslacht
         try {
-            werknemers.add(new Kaderlid(6, 1, 3, 2005, "Stijn Peeters", 2303.20, Functietitel.CEO , Geslacht.valueOf("M")));
+            werknemers.add(new Kaderlid(6, new WerknemersDatum(1, 3, 2005), "Stijn Peeters", 2303.20, Functietitel.CEO , Geslacht.valueOf("M")));
         }
         catch ( Exception ex ) {
             System.out.println(ex.toString());
@@ -74,7 +75,7 @@ public class Bedrijf {
         // Arbeider met slechte indienstredingsdatum
         
         try {
-            werknemers.add(new Arbeider(7, 11, 2, 1977, "Bart Vercauteren", BigDecimal.valueOf(10.5), Geslacht.M));
+            werknemers.add(new Arbeider(7, new WerknemersDatum(11, 2, 1977), "Bart Vercauteren", BigDecimal.valueOf(10.5), Geslacht.M));
         }
         catch ( Exception ex ) {
             System.out.println(ex.toString());
